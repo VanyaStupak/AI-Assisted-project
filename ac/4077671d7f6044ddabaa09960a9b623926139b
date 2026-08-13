@@ -1,0 +1,133 @@
+.editorconfig
+  s_5df5d7a9b8f161::t_49ee70509bfbff 1-18
+.env.example
+  s_5df5d7a9b8f161::t_963ebb61056421 1-65
+.gitattributes
+  s_5df5d7a9b8f161::t_cff2ac9353676a 1-11
+.gitignore
+  s_5df5d7a9b8f161::t_4a72da0ddc4df0 1-27
+.npmrc
+  s_5df5d7a9b8f161::t_3a96587d574367 1-2
+README.md
+  s_5df5d7a9b8f161::t_c1fe32d2a3d9b5 1-58
+app/Http/Controllers/Controller.php
+  s_5df5d7a9b8f161::t_89fd1e4d705aee 1-8
+app/Providers/AppServiceProvider.php
+  s_5df5d7a9b8f161::t_04b5e64c0bdb04 1-24
+artisan
+  s_5df5d7a9b8f161::t_1d331f233e84e9 1-18
+bootstrap/app.php
+  s_5df5d7a9b8f161::t_5070dd550053a9 1-22
+bootstrap/cache/.gitignore
+  s_5df5d7a9b8f161::t_e743e2c9690fa1 1-2
+bootstrap/providers.php
+  s_5df5d7a9b8f161::t_dbfd29228bd11f 1-7
+composer.json
+  s_5df5d7a9b8f161::t_9c29f146320665 1-87
+composer.lock
+  s_5df5d7a9b8f161::t_cbd27e2bcf4b55 1-8363
+config/app.php
+  s_5df5d7a9b8f161::t_d50384f7b04196 1-126
+config/auth.php
+  s_5df5d7a9b8f161::t_d4b2d2067f4f8c 1-117
+config/cache.php
+  s_5df5d7a9b8f161::t_a6f85743a1ea09 1-136
+config/database.php
+  s_5df5d7a9b8f161::t_df9f4a7195c5a8 1-184
+config/filesystems.php
+  s_5df5d7a9b8f161::t_5477c8b678ee6f 1-80
+config/logging.php
+  s_5df5d7a9b8f161::t_24e0dbf01ab518 1-140
+config/mail.php
+  s_5df5d7a9b8f161::t_98cbf2b415e7cf 1-118
+config/queue.php
+  s_5df5d7a9b8f161::t_dea7bda4edf33c 1-129
+config/sanctum.php
+  s_5df5d7a9b8f161::t_b3f05a81466cef 1-87
+config/services.php
+  s_5df5d7a9b8f161::t_a6a0fa7b6b121d 1-38
+config/session.php
+  s_5df5d7a9b8f161::t_c45da97e12c721 1-233
+database/.gitignore
+  s_5df5d7a9b8f161::t_8c214b8d3077ca 1
+database/factories/UserFactory.php
+  s_5df5d7a9b8f161::t_e97059f1b3a192 1-45
+database/migrations/0001_01_01_000000_create_users_table.php
+  s_5df5d7a9b8f161::t_f4f66fedd99ced 1-49
+database/migrations/0001_01_01_000001_create_cache_table.php
+  s_5df5d7a9b8f161::t_f6f6917fb6fc2e 1-35
+database/migrations/0001_01_01_000002_create_jobs_table.php
+  s_5df5d7a9b8f161::t_ec0ceb5ff29e57 1-59
+database/migrations/2026_08_13_152643_create_personal_access_tokens_table.php
+  s_5df5d7a9b8f161::t_9bb4226dac31ce 1-33
+package-lock.json
+  s_5df5d7a9b8f161::t_53e7584aadef86 1-2841
+package.json
+  s_5df5d7a9b8f161::t_e92b6ff4803fae 1-24
+phpunit.xml
+  s_5df5d7a9b8f161::t_0af90c1c0a006a 1-36
+public/.htaccess
+  s_5df5d7a9b8f161::t_7990b8e7c63e31 1-25
+public/index.php
+  s_5df5d7a9b8f161::t_868ee9190e6833 1-20
+public/robots.txt
+  s_5df5d7a9b8f161::t_3ffba01892d395 1-2
+resources/css/app.css
+  s_5df5d7a9b8f161::t_83226e0579e16e 1-9
+routes/console.php
+  s_5df5d7a9b8f161::t_5ef70d93a83442 1-8
+routes/web.php
+  s_5df5d7a9b8f161::t_ab16d93eb2c78d 1-7
+storage/app/.gitignore
+  s_5df5d7a9b8f161::t_918305ec73f2d0 1-4
+storage/app/private/.gitignore
+  s_5df5d7a9b8f161::t_44e00ca7b4ee4f 1-2
+storage/app/public/.gitignore
+  s_5df5d7a9b8f161::t_07695e961ac10c 1-2
+storage/framework/.gitignore
+  s_5df5d7a9b8f161::t_bbb68210bf27bf 1-9
+storage/framework/cache/.gitignore
+  s_5df5d7a9b8f161::t_9b44b12abd73e9 1-3
+storage/framework/cache/data/.gitignore
+  s_5df5d7a9b8f161::t_54f3ae9811b4df 1-2
+storage/framework/sessions/.gitignore
+  s_5df5d7a9b8f161::t_7fa39acdb341bb 1-2
+storage/framework/testing/.gitignore
+  s_5df5d7a9b8f161::t_dcfd3b267beae9 1-2
+storage/framework/views/.gitignore
+  s_5df5d7a9b8f161::t_ac1c9f6a3b4da6 1-2
+storage/logs/.gitignore
+  s_5df5d7a9b8f161::t_05c61ca179ea43 1-2
+tests/Feature/ExampleTest.php
+  s_5df5d7a9b8f161::t_5eeb1d9cf904dd 1-19
+tests/TestCase.php
+  s_5df5d7a9b8f161::t_31493717fca151 1-10
+tests/Unit/ExampleTest.php
+  s_5df5d7a9b8f161::t_f978cde7621f6b 1-16
+resources/js/App.vue
+  s_5df5d7a9b8f161::t_ea8ad82701a938 1-77
+resources/js/api.js
+  s_5df5d7a9b8f161::t_1aecee8c8c7c77 1-32
+resources/js/components/LoginForm.vue
+  s_5df5d7a9b8f161::t_c45ff2956d2ee7 1-64
+resources/js/components/PromoClaimForm.vue
+  s_5df5d7a9b8f161::t_552009af137cd7 1-60
+resources/js/components/PromoHistoryList.vue
+  s_5df5d7a9b8f161::t_d52e8ee56205b6 1-198
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "ac4077671d7f6044ddabaa09960a9b623926139b",
+  "prompts": {},
+  "sessions": {
+    "s_5df5d7a9b8f161": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5285a7d4-4d69-476d-a183-c4b80e3f598e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Vanya <stupakvana2@gmail.com>"
+    }
+  }
+}
