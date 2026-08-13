@@ -1,0 +1,21 @@
+composer.json
+  s_5df5d7a9b8f161::t_a9cab11bf3aa90 19
+composer.lock
+  s_5df5d7a9b8f161::t_6b3beb76e65b99 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "4c3277c8fd4d6e3018b5e5ae8358841b90948fe6",
+  "prompts": {},
+  "sessions": {
+    "s_5df5d7a9b8f161": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5285a7d4-4d69-476d-a183-c4b80e3f598e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Vanya <stupakvana2@gmail.com>"
+    }
+  }
+}
