@@ -1,39 +1,39 @@
 <script setup>
-import { ref } from 'vue';
-import api from '../api.js';
+import { ref } from 'vue'
+import api from '../api.js'
 
-const emit = defineEmits(['claimed', 'settled']);
+const emit = defineEmits(['claimed', 'settled'])
 
-const code = ref('');
-const status = ref('idle'); // idle | loading | success | error
-const message = ref('');
+const code = ref('')
+const status = ref('idle') // idle | loading | success | error
+const message = ref('')
 
 async function submit() {
     if (!code.value.trim()) {
-        status.value = 'error';
-        message.value = 'Поле не заповнене.';
-        return;
+        status.value = 'error'
+        message.value = 'Поле не заповнене.'
+        return
     }
 
-    status.value = 'loading';
-    message.value = '';
+    status.value = 'loading'
+    message.value = ''
 
     try {
-        const { data } = await api.post('/promo/claim', { code: code.value });
+        const { data } = await api.post('/promo/claim', { code: code.value })
 
-        status.value = 'success';
-        message.value = `${data.message} Нараховано: ${data.bonus_amount}. Новий баланс: ${data.balance}.`;
-        code.value = '';
-        emit('claimed', data);
+        status.value = 'success'
+        message.value = `${data.message} Нараховано: ${data.bonus_amount}. Новий баланс: ${data.balance}.`
+        code.value = ''
+        emit('claimed', data)
     } catch (error) {
-        status.value = 'error';
+        status.value = 'error'
 
-        const response = error.response;
+        const response = error.response
         if (response?.status === 422 && response.data?.errors?.code) {
-            message.value = response.data.errors.code[0];
+            message.value = response.data.errors.code[0]
         } else {
-            message.value = response?.data?.message || 'Сталася помилка запиту.';
-            emit('settled');
+            message.value = response?.data?.message || 'Сталася помилка запиту.'
+            emit('settled')
         }
     }
 }

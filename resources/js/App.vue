@@ -1,58 +1,58 @@
 <script setup>
-import { ref } from 'vue';
-import api, { clearToken, getToken } from './api.js';
-import LoginForm from './components/LoginForm.vue';
-import PromoClaimForm from './components/PromoClaimForm.vue';
-import PromoHistoryList from './components/PromoHistoryList.vue';
+import { ref } from 'vue'
+import api, { clearToken, getToken } from './api.js'
+import LoginForm from './components/LoginForm.vue'
+import PromoClaimForm from './components/PromoClaimForm.vue'
+import PromoHistoryList from './components/PromoHistoryList.vue'
 
-const user = ref(null);
-const checkingSession = ref(true);
-const historyRefreshKey = ref(0);
+const user = ref(null)
+const checkingSession = ref(true)
+const historyRefreshKey = ref(0)
 
 async function restoreSession() {
     if (!getToken()) {
-        checkingSession.value = false;
-        return;
+        checkingSession.value = false
+        return
     }
 
     try {
-        const { data } = await api.get('/user');
-        user.value = data;
+        const { data } = await api.get('/user')
+        user.value = data
     } catch {
-        clearToken();
+        clearToken()
     } finally {
-        checkingSession.value = false;
+        checkingSession.value = false
     }
 }
 
 function onLoggedIn(loggedInUser) {
-    user.value = loggedInUser;
+    user.value = loggedInUser
 }
 
 function onClaimed(data) {
     if (user.value) {
-        user.value.balance = data.balance;
+        user.value.balance = data.balance
     }
-    historyRefreshKey.value += 1;
+    historyRefreshKey.value += 1
 }
 
 function onRevoked(data) {
     if (user.value) {
-        user.value.balance = data.balance;
+        user.value.balance = data.balance
     }
 }
 
 async function logout() {
     try {
-        await api.post('/logout');
+        await api.post('/logout')
     } catch {
         // ignore network errors on logout
     }
-    clearToken();
-    user.value = null;
+    clearToken()
+    user.value = null
 }
 
-restoreSession();
+restoreSession()
 </script>
 
 <template>

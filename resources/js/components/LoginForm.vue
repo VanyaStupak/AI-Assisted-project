@@ -1,28 +1,28 @@
 <script setup>
-import { ref } from 'vue';
-import api, { setToken } from '../api.js';
+import { ref } from 'vue'
+import api, { setToken } from '../api.js'
 
-const emit = defineEmits(['logged-in']);
+const emit = defineEmits(['logged-in'])
 
-const email = ref('player@example.com');
-const password = ref('password');
-const status = ref('idle'); // idle | loading | error
-const errorMessage = ref('');
+const email = ref('player@example.com')
+const password = ref('password')
+const status = ref('idle') // idle | loading | error
+const errorMessage = ref('')
 
 async function submit() {
-    status.value = 'loading';
-    errorMessage.value = '';
+    status.value = 'loading'
+    errorMessage.value = ''
 
     try {
-        const { data } = await api.post('/login', { email: email.value, password: password.value });
+        const { data } = await api.post('/login', { email: email.value, password: password.value })
 
-        setToken(data.token);
-        status.value = 'idle';
-        emit('logged-in', data.user);
+        setToken(data.token)
+        status.value = 'idle'
+        emit('logged-in', data.user)
     } catch (error) {
-        status.value = 'error';
+        status.value = 'error'
         errorMessage.value =
-            error.response?.data?.errors?.email?.[0] || error.response?.data?.message || 'Сталася помилка запиту.';
+            error.response?.data?.errors?.email?.[0] || error.response?.data?.message || 'Сталася помилка запиту.'
     }
 }
 </script>

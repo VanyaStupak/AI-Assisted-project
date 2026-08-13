@@ -7,9 +7,9 @@ defineProps({
     cancelText: { type: String, default: 'Скасувати' },
     busy: { type: Boolean, default: false },
     error: { type: String, default: '' },
-});
+})
 
-const emit = defineEmits(['confirm', 'cancel']);
+const emit = defineEmits(['confirm', 'cancel'])
 </script>
 
 <template>

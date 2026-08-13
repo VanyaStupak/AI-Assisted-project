@@ -1,108 +1,108 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
-import api from '../api.js';
-import ConfirmDialog from './ConfirmDialog.vue';
+import { onMounted, ref, watch } from 'vue'
+import api from '../api.js'
+import ConfirmDialog from './ConfirmDialog.vue'
 
 const props = defineProps({
     refreshKey: { type: Number, default: 0 },
-});
+})
 
-const emit = defineEmits(['revoked']);
+const emit = defineEmits(['revoked'])
 
-const claims = ref([]);
-const status = ref('idle'); // idle | loading | error
-const errorMessage = ref('');
-const statusFilter = ref('');
-const page = ref(1);
-const meta = ref(null);
-const revokingId = ref(null);
-const claimPendingRevoke = ref(null);
-const revokeError = ref('');
+const claims = ref([])
+const status = ref('idle') // idle | loading | error
+const errorMessage = ref('')
+const statusFilter = ref('')
+const page = ref(1)
+const meta = ref(null)
+const revokingId = ref(null)
+const claimPendingRevoke = ref(null)
+const revokeError = ref('')
 
 const STATUS_LABELS = {
     applied: 'Успішно застосовано',
     rejected: 'Відхилено',
     revoked: 'Скасовано',
-};
+}
 
 const STATUS_BADGE_CLASSES = {
     applied: 'bg-green-100 text-green-700',
     rejected: 'bg-red-100 text-red-700',
     revoked: 'bg-neutral-200 text-neutral-600',
-};
+}
 
 const REASON_LABELS = {
     not_found: 'Код не знайдено',
     expired: 'Термін дії минув',
     already_used: 'Вже використано раніше',
-};
+}
 
 async function load() {
-    status.value = 'loading';
-    errorMessage.value = '';
+    status.value = 'loading'
+    errorMessage.value = ''
 
     try {
-        const params = { page: page.value };
+        const params = { page: page.value }
         if (statusFilter.value) {
-            params.status = statusFilter.value;
+            params.status = statusFilter.value
         }
 
-        const { data } = await api.get('/promo/history', { params });
-        claims.value = data.data;
-        meta.value = data.meta;
-        status.value = 'idle';
+        const { data } = await api.get('/promo/history', { params })
+        claims.value = data.data
+        meta.value = data.meta
+        status.value = 'idle'
     } catch (error) {
-        status.value = 'error';
-        errorMessage.value = error.response?.data?.message || 'Сталася помилка запиту.';
+        status.value = 'error'
+        errorMessage.value = error.response?.data?.message || 'Сталася помилка запиту.'
     }
 }
 
 function goToPage(newPage) {
-    page.value = newPage;
-    load();
+    page.value = newPage
+    load()
 }
 
 function askRevoke(claim) {
-    revokeError.value = '';
-    claimPendingRevoke.value = claim;
+    revokeError.value = ''
+    claimPendingRevoke.value = claim
 }
 
 function cancelRevoke() {
-    if (revokingId.value) return;
-    claimPendingRevoke.value = null;
+    if (revokingId.value) return
+    claimPendingRevoke.value = null
 }
 
 async function confirmRevoke() {
-    const claim = claimPendingRevoke.value;
-    if (!claim) return;
+    const claim = claimPendingRevoke.value
+    if (!claim) return
 
-    revokingId.value = claim.id;
-    revokeError.value = '';
+    revokingId.value = claim.id
+    revokeError.value = ''
 
     try {
-        const { data } = await api.patch(`/promo/${claim.id}/revoke`);
-        claim.status = 'revoked';
-        claim.revoked_at = new Date().toISOString();
-        emit('revoked', data);
-        claimPendingRevoke.value = null;
+        const { data } = await api.patch(`/promo/${claim.id}/revoke`)
+        claim.status = 'revoked'
+        claim.revoked_at = new Date().toISOString()
+        emit('revoked', data)
+        claimPendingRevoke.value = null
     } catch (error) {
-        revokeError.value = error.response?.data?.message || 'Сталася помилка запиту.';
+        revokeError.value = error.response?.data?.message || 'Сталася помилка запиту.'
     } finally {
-        revokingId.value = null;
+        revokingId.value = null
     }
 }
 
 watch(statusFilter, () => {
-    page.value = 1;
-    load();
-});
+    page.value = 1
+    load()
+})
 
 watch(() => props.refreshKey, () => {
-    page.value = 1;
-    load();
-});
+    page.value = 1
+    load()
+})
 
-onMounted(load);
+onMounted(load)
 </script>
 
 <template>
