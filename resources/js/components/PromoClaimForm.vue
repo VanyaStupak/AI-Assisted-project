@@ -9,6 +9,12 @@ const status = ref('idle'); // idle | loading | success | error
 const message = ref('');
 
 async function submit() {
+    if (!code.value.trim()) {
+        status.value = 'error';
+        message.value = 'Поле не заповнене.';
+        return;
+    }
+
     status.value = 'loading';
     message.value = '';
 
@@ -42,7 +48,6 @@ async function submit() {
                 v-model="code"
                 type="text"
                 placeholder="Введіть промокод"
-                required
                 class="min-w-0 flex-1 rounded border border-neutral-300 px-3 py-2 text-sm uppercase focus:border-neutral-500 focus:outline-none"
             />
             <button
