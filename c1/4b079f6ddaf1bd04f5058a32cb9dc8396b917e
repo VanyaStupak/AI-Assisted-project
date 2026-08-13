@@ -1,0 +1,19 @@
+resources/js/components/PromoClaimForm.vue
+  s_5df5d7a9b8f161::t_93be56de658a00 12-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "c14b079f6ddaf1bd04f5058a32cb9dc8396b917e",
+  "prompts": {},
+  "sessions": {
+    "s_5df5d7a9b8f161": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5285a7d4-4d69-476d-a183-c4b80e3f598e",
+        "model": "claude-sonnet-5"
+      },
+      "human_author": "Vanya <stupakvana2@gmail.com>"
+    }
+  }
+}
